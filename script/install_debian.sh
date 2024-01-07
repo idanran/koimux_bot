@@ -58,8 +58,9 @@ neofetch >>systeminfo.log
 hostinfo=$(cat systeminfo.log |grep Host |awk -F':' '{print $2}')
 echo "更新DNS"
 rm -rf $sys_name-$AH/etc/resolv.conf &&
-echo "nameserver 223.5.5.5
-nameserver 223.6.6.6" >$sys_name-$AH/etc/resolv.conf
+echo "nameserver 8.8.8.8
+nameserver 223.5.5.5
+" >$sys_name-$AH/etc/resolv.conf
 echo "设置时区"
 sleep $SLEEP_TIME
 rm systeminfo.log
