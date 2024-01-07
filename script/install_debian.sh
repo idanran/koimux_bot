@@ -56,11 +56,6 @@ sleep $SLEEP_TIME
 # 配置容器
 echo "更新DNS"
 sleep $SLEEP_TIME
-echo "127.0.0.1 localhost" > $sys_name-$AH/etc/hosts
-rm $sys_name-$AH/etc/hostname
-echo "koimux" > $sys_name-$AH/etc/hostname
-echo "127.0.0.1 localhost koimux
-::1 localhost koimux" > $sys_name-$AH/etc/hosts
 rm -rf $sys_name-$AH/etc/resolv.conf &&
 echo "nameserver 223.5.5.5
 nameserver 223.6.6.6
