@@ -54,16 +54,18 @@ fi
 sleep $SLEEP_TIME
 
 # 配置容器
-neofetch >>systeminfo.log
-hostinfo=$(cat systeminfo.log |grep Host |awk -F':' '{print $2}')
 echo "更新DNS"
+sleep $SLEEP_TIME
+echo "127.0.0.1 localhost" > $sys_name-$AH/etc/hosts
+rm $sys_name-$AH/etc/hostname
+echo "koimux" > $sys_name-$AH/etc/hostname
+echo "127.0.0.1 koimux" > $sys_name-$AH/etc/hosts
 rm -rf $sys_name-$AH/etc/resolv.conf &&
-echo "nameserver 8.8.8.8
-nameserver 223.5.5.5
-" >$sys_name-$AH/etc/resolv.conf
+echo "nameserver 223.5.5.5
+nameserver 223.6.6.6
+nameserver 114.114.114.114" >$sys_name-$AH/etc/resolv.conf
 echo "设置时区"
 sleep $SLEEP_TIME
-rm systeminfo.log
 echo "export  TZ='Asia/Shanghai'" >> $sys_name-$AH/root/.bashrc
 echo "export  TZ='Asia/Shanghai'" >> $sys_name-$AH/etc/profile
 echo "export PULSE_SERVER=tcp:127.0.0.1:4173" >> $sys_name-$AH/etc/profile
