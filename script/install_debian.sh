@@ -58,8 +58,7 @@ echo "更新DNS"
 sleep $SLEEP_TIME
 rm -rf $sys_name-$AH/etc/resolv.conf &&
 echo "nameserver 223.5.5.5
-nameserver 223.6.6.6
-nameserver 114.114.114.114" >$sys_name-$AH/etc/resolv.conf
+nameserver 223.6.6.6" >$sys_name-$AH/etc/resolv.conf
 echo "设置时区"
 sleep $SLEEP_TIME
 echo "export  TZ='Asia/Shanghai'" >> $sys_name-$AH/root/.bashrc
